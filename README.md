@@ -4,10 +4,9 @@
 Link: http://tovocab.com/
 
 ## Technologies
-* CSS
-* SASS
-* JavaScript
-* React
+* React.js
+* Node.js
+* SCSS
 
 ## Contact
 
