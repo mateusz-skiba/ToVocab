@@ -1,0 +1,921 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+  background-color: #1B2027;
+  position: relative;
+}
+body.lightMode {
+  background-color: #f9f9f9;
+}
+
+#app {
+  background-color: #1B2027;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+#app header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 1;
+}
+#app header .container {
+  width: 87%;
+  margin: auto;
+  padding-top: 30px;
+}
+#app header .container span.logo {
+  font-family: "Lato", sans-serif;
+  color: #f8f8f2;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  transition: 0.9s;
+}
+#app main {
+  position: relative;
+  min-height: calc(100vh - 50px);
+  overflow: hidden;
+}
+#app main #loader {
+  position: fixed;
+  z-index: 2;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+}
+#app main #loader .loadIcon {
+  box-sizing: border-box;
+  width: 70px;
+  height: 70px;
+  border: 7px solid rgba(255, 255, 255, 0.9411764706);
+  border-top-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 1.4s linear infinite;
+}
+#app main section.hero {
+  padding-top: calc(43vh - 205px);
+  padding-bottom: 125px;
+  transition: 0.9s;
+  opacity: 0;
+  transform: translateY(200px);
+}
+#app main section.hero .container {
+  width: 87%;
+  max-width: 1800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+#app main section.hero .container h1 {
+  font-family: "Montserrat", sans-serif;
+  color: #f8f8f2;
+  text-align: center;
+  font-weight: bold;
+  font-size: 58px;
+  line-height: 121%;
+}
+#app main section.hero .container h1 span.highlight {
+  color: #1B2027;
+  z-index: 0;
+  position: relative;
+}
+#app main section.hero .container h1 span.highlight::before {
+  content: "";
+  width: 104%;
+  height: 100%;
+  background-color: #f8f8f2;
+  display: block;
+  position: absolute;
+  top: 6%;
+  left: -2%;
+  z-index: -1;
+  transform: rotate(-1.5deg);
+}
+#app main section.hero .container form {
+  margin-top: 70px;
+  position: relative;
+}
+#app main section.hero .container form label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+#app main section.hero .container form input.inputWord {
+  width: 450px;
+  height: 50px;
+  border-radius: 13px;
+  border: none;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+  font-family: "Montserrat", sans-serif;
+  color: #1B2027;
+  font-weight: 500;
+  font-size: 15px;
+  padding-left: 16px;
+  padding-right: 48px;
+  background-color: #f6f6f6;
+  outline: none;
+  position: relative;
+}
+#app main section.hero .container form input.inputWord::-moz-placeholder {
+  color: #1B2027;
+  opacity: 0.5;
+}
+#app main section.hero .container form input.inputWord::placeholder {
+  color: #1B2027;
+  opacity: 0.5;
+}
+#app main section.hero .container form button.submitWord {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  display: block;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 7px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#app main section.hero .container form button.submitWord svg {
+  transform: translateY(2px);
+}
+#app main section.hero .container form button.submitWord:hover {
+  background-color: rgba(0, 0, 0, 0.1333333333);
+}
+#app main section.hero .container form button.submitWord:focus {
+  background-color: rgba(0, 0, 0, 0.1333333333);
+  outline: none;
+}
+#app main section.hero .container .vocabContent {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 5px;
+}
+#app main section.hero .container .vocabContent .word {
+  font-family: "Montserrat", sans-serif;
+  margin: 10px 4.5px 0px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+  display: block;
+  background-color: #f6f6f6;
+  color: #1B2027;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 33px 8px 15px;
+  border-radius: 11px;
+  position: relative;
+}
+#app main section.hero .container .vocabContent .word button.remove {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  box-shadow: none;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  transform: translateY(-50%);
+  font-weight: 300;
+  font-size: 15px;
+  text-align: center;
+  line-height: 0px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0);
+  width: 19px;
+  height: 19px;
+  cursor: pointer;
+  transition: 0.2s;
+  padding-bottom: 1px;
+  outline: none;
+}
+#app main section.hero .container .vocabContent .word button.remove:hover {
+  background-color: rgba(0, 0, 0, 0.1333333333);
+}
+#app main section.hero .container .vocabContent .word button.remove:focus {
+  background-color: rgba(0, 0, 0, 0.1333333333);
+}
+#app main section.hero .container #generate {
+  margin-top: 42px;
+  height: 50px;
+  width: 238px;
+  border-radius: 13px;
+  outline: none;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  color: #f6f6f6;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  animation: animatedgradient 5s ease infinite alternate;
+  background-size: 300% 300%;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+#app main section.hero .container #generate.active {
+  pointer-events: all;
+}
+#app main section.hero .container #generate.active:hover {
+  box-shadow: 1px 1px 19px rgba(0, 0, 0, 0.7);
+}
+#app main section.hero .container #generate.active:focus {
+  box-shadow: 1px 1px 19px rgba(0, 0, 0, 0.7);
+}
+#app main section.exercise {
+  display: none;
+  transition: 0.5s;
+  padding-top: 120px;
+  opacity: 0;
+  transform: translateY(65vh);
+  padding-bottom: 125px;
+}
+#app main section.exercise .container {
+  max-width: 1100px;
+  width: 75%;
+  margin: auto;
+  padding: 60px 50px;
+  border-radius: 24px;
+  background-color: #fff;
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.06);
+}
+#app main section.exercise .container h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #1B2027;
+  text-align: left;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 121%;
+  opacity: 0.95;
+}
+#app main section.exercise .container .vocabContent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 5px;
+}
+#app main section.exercise .container .vocabContent .word {
+  font-family: "Montserrat", sans-serif;
+  margin: 10px 10px 0px 0px;
+  display: block;
+  background-color: #f6f6f6;
+  color: #1B2027;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 9px 13px;
+  border-radius: 15px;
+  position: relative;
+}
+#app main section.exercise .container h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #1B2027;
+  text-align: left;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 121%;
+  opacity: 0.95;
+  margin-top: 80px;
+  padding-bottom: 10px;
+}
+#app main section.exercise .container ol {
+  padding-top: 0px;
+  padding-left: 20px;
+}
+#app main section.exercise .container ol li {
+  margin: 16px 0px;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  color: #1B2027;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  min-height: 28px;
+}
+#app main section.exercise .container ol li .exerciseElement {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#app main section.exercise .container ol li .exerciseElement p {
+  padding-right: 30px;
+}
+#app main section.exercise .container ol li .exerciseElement p span {
+  margin-left: 5px;
+}
+#app main section.exercise .container ol li .exerciseElement p input.typeAnswer, #app main section.exercise .container ol li .exerciseElement p span.correctAnswer, #app main section.exercise .container ol li .exerciseElement p select.chooseAnswer {
+  font-family: "Montserrat", sans-serif;
+  color: #1B2027;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
+  border-radius: 15px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+#app main section.exercise .container ol li .exerciseElement p input.typeAnswer {
+  padding: 4px 4px;
+  width: 115px;
+  background-color: #f6f6f6;
+}
+#app main section.exercise .container ol li .exerciseElement p input.typeAnswer:focus {
+  background-color: #eee;
+}
+#app main section.exercise .container ol li .exerciseElement p input.typeAnswer::-moz-placeholder {
+  opacity: 0.4;
+}
+#app main section.exercise .container ol li .exerciseElement p input.typeAnswer::placeholder {
+  opacity: 0.4;
+}
+#app main section.exercise .container ol li .exerciseElement p span.correctAnswer {
+  padding: 4px 13px;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #81C784;
+  margin-left: 5px;
+  display: none;
+}
+#app main section.exercise .container ol li .exerciseElement p select.chooseAnswer {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 1em;
+  padding: 4px 27px 4px 15px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+#app main section.exercise .container ol li .exerciseElement p select.chooseAnswer:focus {
+  background-color: #eee;
+}
+#app main section.exercise .container ol li .exerciseElement button.showAnswer {
+  font-family: "Montserrat", sans-serif;
+  display: block;
+  background-color: rgba(255, 255, 255, 0);
+  color: #1B2027;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 15px;
+  position: relative;
+  border: none;
+  border: 1px solid #1B2027;
+  cursor: pointer;
+  transition: 0s;
+  outline: none;
+}
+#app main section.exercise .container ol li .exerciseElement button.showAnswer:focus {
+  background-color: #eee;
+}
+#app main section.exercise .container ol li .exerciseElement button.showAnswer:hover {
+  background-color: #1B2027;
+  color: #fff;
+}
+#app main section.exercise .container ol li .exerciseElement.correct p input.typeAnswer, #app main section.exercise .container ol li .exerciseElement.correct p select.chooseAnswer {
+  background-color: #81C784;
+  pointer-events: none;
+}
+#app main section.exercise .container ol li .exerciseElement.correct button.showAnswer {
+  pointer-events: none;
+  visibility: hidden;
+}
+#app main section.exercise .container ol li .exerciseElement.wrong p input.typeAnswer, #app main section.exercise .container ol li .exerciseElement.wrong p select.chooseAnswer {
+  background-color: #E57373;
+  pointer-events: none;
+}
+#app main section.exercise .container ol li .exerciseElement.wrong p input.typeAnswer::-moz-placeholder, #app main section.exercise .container ol li .exerciseElement.wrong p select.chooseAnswer::-moz-placeholder {
+  opacity: 0;
+}
+#app main section.exercise .container ol li .exerciseElement.wrong p input.typeAnswer::placeholder, #app main section.exercise .container ol li .exerciseElement.wrong p select.chooseAnswer::placeholder {
+  opacity: 0;
+}
+#app main section.exercise .container ol li .exerciseElement.wrong p span.correctAnswer {
+  display: inline;
+}
+#app main section.exercise .container ol li .exerciseElement.wrong button.showAnswer {
+  pointer-events: none;
+  visibility: hidden;
+}
+#app main section.exercise .container button#checkAll {
+  margin-top: 80px;
+  height: 50px;
+  width: 238px;
+  border-radius: 13px;
+  outline: none;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  color: #f6f6f6;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: #2B3440;
+  border: 2px solid #2B3440;
+  animation: animatedgradient 5s ease infinite alternate;
+  background-size: 300% 300%;
+  transition: 0.12s;
+  cursor: pointer;
+}
+#app main section.exercise .container button#checkAll:hover {
+  background-color: rgba(255, 255, 255, 0);
+  color: #2B3440;
+}
+#app main section.exercise .container button#checkAll:focus-visible {
+  background-color: rgba(255, 255, 255, 0);
+  color: #2B3440;
+  outline: auto;
+}
+#app main section.exercise .container button#checkAll.done {
+  background-color: rgba(255, 255, 255, 0);
+  color: #2B3440;
+}
+#app footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding-bottom: 27px;
+}
+#app footer .container {
+  width: calc(87% + 14px);
+  margin: auto;
+  position: relative;
+}
+#app footer .container span.rights, #app footer .container a.contact {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  bottom: 0px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 3px 9px;
+}
+#app footer .container span.rights {
+  left: 50%;
+  transform: translateX(-50%);
+}
+#app footer .container a.contact {
+  right: 0px;
+  text-decoration: none;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0);
+  transition: 0.2s;
+}
+#app footer .container a.contact svg {
+  margin-right: 5px;
+  transform: translateY(1px);
+}
+#app footer .container a.contact:hover {
+  background-color: rgba(255, 255, 255, 0.1333333333);
+}
+#app footer .container a.contact:focus {
+  background-color: rgba(255, 255, 255, 0.1333333333);
+  outline: none;
+}
+#app.lightMode {
+  background-color: #fff;
+}
+#app.lightMode header .container span.logo {
+  color: #1B2027;
+}
+#app.lightMode main #loader {
+  opacity: 0;
+}
+#app.lightMode footer .container span.rights, #app.lightMode footer .container a.contact {
+  color: rgba(0, 0, 0, 0.75);
+}
+#app.lightMode footer .container a.contact:hover, #app.lightMode footer .container a.contact:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#app.lightMode footer .container a.contact svg {
+  filter: invert(1);
+}
+
+@media (min-width: 2000px) {
+  #app main section.hero .container {
+    transform: scale(1.08);
+  }
+}
+@media (max-width: 1600px) {
+  #app header .container {
+    width: 88%;
+    padding-top: 26px;
+  }
+  #app header .container span.logo {
+    font-size: 44px;
+  }
+  #app main section.hero {
+    padding-top: calc(43vh - 200px);
+    padding-bottom: 100px;
+  }
+  #app main section.hero .container {
+    width: 88%;
+  }
+  #app main section.hero .container h1 {
+    font-size: 51px;
+  }
+  #app main section.hero .container form {
+    margin-top: 60px;
+  }
+  #app main section.hero .container form input.inputWord {
+    width: 440px;
+    height: 48px;
+  }
+  #app main section.hero .container .vocabContent {
+    width: 560px;
+    padding-top: 4px;
+  }
+  #app main section.hero .container .vocabContent .word {
+    margin: 9px 4px 0px;
+  }
+  #app main section.hero .container #generate {
+    height: 48px;
+    width: 230px;
+    margin-top: 36px;
+  }
+  #app main section.exercise .container h2 {
+    font-size: 34px;
+  }
+  #app main section.exercise .container h3 {
+    font-size: 26px;
+  }
+  #app main section.exercise .container ol li {
+    font-size: 15px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p {
+    padding-right: 25px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p span {
+    margin-left: 4px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p input.typeAnswer, #app main section.exercise .container ol li .exerciseElement p span.correctAnswer, #app main section.exercise .container ol li .exerciseElement p select.chooseAnswer {
+    font-size: 13px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p input.typeAnswer {
+    width: 110px;
+  }
+  #app main section.exercise .container ol li .exerciseElement button.showAnswer {
+    font-size: 13px;
+  }
+  #app main section.exercise .container button#checkAll {
+    height: 48px;
+    width: 230px;
+  }
+  #app footer {
+    padding-bottom: 23px;
+  }
+  #app footer .container {
+    width: 90%;
+  }
+  #app footer .container span.rights, #app footer .container a.contact {
+    font-size: 13px;
+    padding: 3px 9px;
+  }
+  #app footer .container a.contact {
+    border-radius: 6px;
+  }
+}
+@media (max-width: 1400px) {
+  #app header .container {
+    padding-top: 22px;
+  }
+  #app header .container span.logo {
+    font-size: 39.5px;
+  }
+  #app main section.hero {
+    padding-top: calc(43vh - 192.5px);
+    padding-bottom: 90px;
+  }
+  #app main section.hero .container h1 {
+    font-size: 46px;
+  }
+  #app main section.hero .container form {
+    margin-top: 46px;
+  }
+  #app main section.hero .container form input.inputWord {
+    width: 440px;
+    height: 45px;
+    font-size: 14px;
+    border-radius: 12px;
+    padding-left: 15px;
+    padding-right: 46px;
+  }
+  #app main section.hero .container form button.submitWord {
+    padding: 6px;
+  }
+  #app main section.hero .container form button.submitWord svg {
+    transform: scale(0.9) translateY(2px);
+  }
+  #app main section.hero .container .vocabContent {
+    width: 520px;
+    padding-top: 4px;
+  }
+  #app main section.hero .container .vocabContent .word {
+    margin: 9px 4px 0px;
+    font-size: 14px;
+    padding: 7px 31px 7px 14px;
+    border-radius: 11px;
+  }
+  #app main section.hero .container .vocabContent .word button.remove {
+    right: 6px;
+    border-radius: 5px;
+    width: 17px;
+    height: 17px;
+  }
+  #app main section.hero .container #generate {
+    height: 45px;
+    width: 220px;
+    margin-top: 34px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+  #app main section.exercise {
+    padding-top: 85px;
+    padding-bottom: 110px;
+  }
+  #app main section.exercise .container {
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05);
+    padding: 50px 40px;
+    border-radius: 22px;
+  }
+  #app main section.exercise .container h2 {
+    font-size: 30px;
+  }
+  #app main section.exercise .container .vocabContent {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  #app main section.exercise .container .vocabContent .word {
+    margin: 8px 8px 0px 0px;
+    font-size: 13.5px;
+    padding: 7px 11px;
+    border-radius: 12px;
+  }
+  #app main section.exercise .container h3 {
+    font-size: 22px;
+    margin-top: 72px;
+  }
+  #app main section.exercise .container ol {
+    padding-left: 17px;
+  }
+  #app main section.exercise .container ol li {
+    font-size: 14px;
+    margin: 13px 0px;
+  }
+  #app main section.exercise .container button#checkAll {
+    height: 45px;
+    width: 220px;
+    border-radius: 12px;
+    font-size: 15px;
+    margin-top: 70px;
+  }
+  #app footer {
+    padding-bottom: 20px;
+  }
+  #app footer .container span.rights, #app footer .container a.contact {
+    font-size: 12px;
+    padding: 2px 7px;
+  }
+  #app footer .container a.contact {
+    border-radius: 6px;
+  }
+}
+@media (max-width: 1000px) {
+  #app.lightMode header .container span.logo {
+    font-size: 36px;
+  }
+  #app main section.hero {
+    margin: 100px 0px 60px;
+    padding-top: calc(40vh - 225px);
+  }
+  #app main section.exercise {
+    padding-top: 65px;
+    padding-bottom: 90px;
+  }
+  #app main section.exercise .container {
+    width: 88%;
+    padding: 38px 38px 42px;
+  }
+}
+@media (max-width: 650px) {
+  #app header .container {
+    padding-top: 18px;
+  }
+  #app header .container span.logo {
+    font-size: 30px;
+  }
+  #app main #loader .loadIcon {
+    width: 58px;
+    height: 58px;
+  }
+  #app main section.hero {
+    padding-top: calc(42vh - 225px);
+    margin: 75px 0px 40px;
+  }
+  #app main section.hero .container {
+    width: 95%;
+  }
+  #app main section.hero .container h1 {
+    font-size: 31px;
+    line-height: 125%;
+  }
+  #app main section.hero .container h1 span.small {
+    font-size: 28px;
+  }
+  #app main section.hero .container form {
+    margin-top: 36px;
+    width: 83vw;
+    max-width: 400px;
+  }
+  #app main section.hero .container form input.inputWord {
+    height: 44px;
+    font-size: 13px;
+    width: 100%;
+  }
+  #app main section.hero .container form button.submitWord {
+    padding: 6px;
+    right: 8px;
+  }
+  #app main section.hero .container form button.submitWord svg {
+    transform: scale(0.87) translateY(2px);
+  }
+  #app main section.hero .container .vocabContent {
+    width: 98%;
+    padding-top: 3px;
+  }
+  #app main section.hero .container .vocabContent .word {
+    font-size: 13px;
+    margin: 8px 3px 0px;
+    border-radius: 10px;
+    padding: 6px 27px 6.5px 12px;
+  }
+  #app main section.hero .container .vocabContent .word button.remove {
+    right: 6px;
+    border-radius: 5px;
+    width: 17px;
+    height: 17px;
+    right: 4px;
+    font-size: 14px;
+  }
+  #app main section.hero .container #generate {
+    height: 44px;
+    font-size: 14px;
+    width: 208px;
+    margin-top: 27px;
+  }
+  #app main section.exercise {
+    padding-top: 50px;
+    padding-bottom: 75px;
+  }
+  #app main section.exercise .container {
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.05);
+    width: 88%;
+    padding: 27px 25px 28px;
+  }
+  #app main section.exercise .container h2 {
+    font-size: 26px;
+  }
+  #app main section.exercise .container .vocabContent {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  #app main section.exercise .container .vocabContent .word {
+    margin: 6px 6px 0px 0px;
+    font-size: 12px;
+    padding: 7px 11px;
+    border-radius: 9px;
+  }
+  #app main section.exercise .container h3 {
+    font-size: 18px;
+    margin-top: 48px;
+    padding-bottom: 0px;
+  }
+  #app main section.exercise .container ol {
+    padding-left: 17px;
+  }
+  #app main section.exercise .container ol li {
+    font-size: 13px;
+    margin: 10px 0px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-right: 15px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p input.typeAnswer, #app main section.exercise .container ol li .exerciseElement p span.correctAnswer, #app main section.exercise .container ol li .exerciseElement p select.chooseAnswer {
+    font-size: 12px;
+  }
+  #app main section.exercise .container ol li .exerciseElement p input.typeAnswer {
+    width: 100px;
+  }
+  #app main section.exercise .container ol li .exerciseElement button.showAnswer {
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+  #app main section.exercise .container ol li .exerciseElement button.showAnswer span {
+    display: none;
+  }
+  #app main section.exercise .container button#checkAll {
+    height: 44px;
+    font-size: 14px;
+    width: 190px;
+    margin-top: 43px;
+  }
+  #app footer {
+    padding-bottom: 14px;
+  }
+  #app footer .container span.rights, #app footer .container a.contact {
+    padding: 1px 5px;
+    font-size: 11px;
+  }
+  #app footer .container a.contact {
+    border-radius: 5px;
+  }
+}
+@media (max-width: 400px) {
+  #app main section.hero .container h1 {
+    font-size: 29px;
+  }
+  #app main section.hero .container h1 span.small {
+    font-size: 28px;
+  }
+}
+@media (max-width: 365px) {
+  #app main section.hero .container h1 {
+    font-size: 27px;
+  }
+  #app main section.hero .container h1 span.small {
+    font-size: 26px;
+  }
+}
+@media (max-width: 335px) {
+  #app main section.hero .container h1 {
+    font-size: 25px;
+  }
+  #app main section.hero .container h1 span.small {
+    font-size: 24px;
+  }
+}
+@media (max-width: 318px) {
+  #app main section.hero .container h1 {
+    font-size: 22px;
+  }
+  #app main section.hero .container h1 span.small {
+    font-size: 21px;
+  }
+}/*# sourceMappingURL=index.css.map */
