@@ -98,12 +98,12 @@ function App() {
     setWords(newWords);
   };
 
-  const fetchData = (wordsArray) => {
+  const fetchData = (wordsArray, timeout = 30000) => {
     const vocab = wordsArray.join(',');
 
     let waitTitle = true;
     document.title = "Generating";
-    const changeTItle = setInterval(() => {
+    const changeTitle = setInterval(() => {
       if (document.title == "Generating...") {
         if (waitTitle) {
           waitTitle = false;
@@ -117,8 +117,17 @@ function App() {
 
     console.log(vocab)
 
-    fetch('https://tovocabapi.vercel.app/generate?vocab=' + vocab)
-      .then(response => {
+    // AbortController, which will allow us to cancel the fetch request
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    // Set a timeout to abort the request if it exceeds our specified limit
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+    fetch(`https://tovocabapi.vercel.app/generate?vocab=${vocab}`, { signal })
+    .then(response => {
+        clearTimeout(timeoutId); // Clear the timeout if the fetch completes in time
+
         if (response.ok) {
           return response.json();
         } else if (response.status === 400) {
@@ -145,10 +154,17 @@ function App() {
           document.querySelector('section.exercise').style.transform = "translateY(0px)";
         }, 600);
 
-        clearInterval(changeTItle);
+        clearInterval(changeTitle);
         document.title = "ToVocab"
       })
       .catch(error => {
+        clearInterval(changeTitle);
+        document.title = "ToVocab"
+
+        if (error.name === 'AbortError') {
+          console.error('Fetch aborted due to timeout');
+        }
+
         console.error('Error fetching data:', error);
 
         document.querySelector('#loader .loadIcon').style.animation = 'none';
@@ -190,12 +206,13 @@ function App() {
     exerciseElement.classList.add("done");
     exerciseElement.querySelector('.userAnswer').tabIndex = -1;
 
-    const allFocusable = Array.from(document.querySelectorAll('.exerciseElement .userAnswer, .exerciseElement button'));
-    const currentIndex = allFocusable.findIndex(element => element === document.activeElement);
-    const nextFocusable = allFocusable[currentIndex + 1];
-    if (nextFocusable) {
-      nextFocusable.focus();
-    }
+    // after check answer focus to another field
+    // const allFocusable = Array.from(document.querySelectorAll('.exerciseElement .userAnswer, .exerciseElement button'));
+    // const currentIndex = allFocusable.findIndex(element => element === document.activeElement);
+    // const nextFocusable = allFocusable[currentIndex + 1];
+    // if (nextFocusable) {
+    //   nextFocusable.focus();
+    // }
 
     if (document.querySelectorAll('.exerciseElement').length == document.querySelectorAll('.exerciseElement.done').length) {
       document.querySelector('#checkAll').classList.add("done");
@@ -250,9 +267,7 @@ function App() {
                 placeholder='Type word'
               />
               <button type="submit" className='submitWord' aria-label="Add word">
-                {/* <svg xmlns="http://www.w3.org/2000/svg" width="17.349" height="15.18" viewBox="0 0 17.349 15.18">
-                  <path id="arrow-right-to-bracket-solid" d="M11.927,34.169H14.1a1.083,1.083,0,0,1,1.084,1.084v8.674A1.083,1.083,0,0,1,14.1,45.011H11.927a1.084,1.084,0,0,0,0,2.169H14.1a3.254,3.254,0,0,0,3.253-3.253V35.253A3.254,3.254,0,0,0,14.1,32H11.927a1.084,1.084,0,0,0,0,2.169Zm-.319,6.187a1.086,1.086,0,0,0,0-1.535L7.272,34.484a1.085,1.085,0,0,0-1.535,1.535l2.487,2.487H1.084a1.084,1.084,0,0,0,0,2.169H8.224L5.737,43.161A1.085,1.085,0,0,0,7.272,44.7l4.337-4.337Z" transform="translate(0 -32)" fill="#1b2027"/>
-                </svg> */}
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 448 512">
                   <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
                 </svg>
