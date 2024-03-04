@@ -21,6 +21,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "sass": "^1.71.1",
     "vite": "^5.0.8"
   },
   "description": "> ToVocab is an AI-powered application designed to generate a set of vocabulary exercises in a chosen foreign language. Users can easily input the words they want to learn, and the app will create tailored exercises that can be completed interactively or downloaded as a PDF file.",

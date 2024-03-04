@@ -1,0 +1,104 @@
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-bottom: 27px;
+
+    .container {
+      width: calc(87% + 14px);
+      margin: auto;
+      position: relative;
+
+        span.rights, a.contact {
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            bottom: 0px;
+            color: var(--footerTextColor);
+            font-size: 14px;
+            font-weight: 400;
+            padding: 3px 9px;
+        }
+
+        span.rights {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        a.contact {
+            right: 0px;
+            text-decoration: none;
+            border-radius: 7px;
+            background-color: #ffffff00;
+            transition: .2s;
+
+            svg {
+                margin-right: 5px;
+                transform: translateY(1px);
+                filter: var(--footerImg);
+            }
+
+            &:hover {
+                background-color: var(--footerTextBgHover);
+            }
+
+            &:focus {
+                background-color: var(--footerTextBgHover);
+                outline: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    footer {  
+        padding-bottom: 23px;
+  
+        .container {
+            width: 90%;
+
+            span.rights, a.contact {
+                font-size: 13px;
+                padding: 3px 9px;
+            }
+
+            a.contact {
+                border-radius: 6px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    footer {
+        padding-bottom: 20px;
+    
+        .container {  
+            span.rights, a.contact {
+                font-size: 12px;
+                padding: 2px 7px;
+            }
+
+            a.contact {
+                border-radius: 6px;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    footer {
+        padding-bottom: 14px;
+
+        .container {  
+            span.rights, a.contact {
+                padding: 1px 5px;
+                font-size: 11px;
+            }
+
+            a.contact {
+                border-radius: 5px;
+            }
+        }
+    }
+}
