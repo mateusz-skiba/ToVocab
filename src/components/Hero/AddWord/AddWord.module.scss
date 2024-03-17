@@ -1,0 +1,123 @@
+form {
+    margin-top: 70px;
+    position: relative;
+
+    label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        white-space: nowrap;
+    }
+
+    input.inputWord {
+        width: 450px;
+        height: 50px;
+        border-radius: 13px;
+        border: none;
+        box-shadow: 1px 1px 12px rgba(0,0,0, 0.4);
+        font-family: 'Montserrat', sans-serif;
+        color: var(--baseDark);
+        font-weight: 500;
+        font-size: 15px;
+        padding-left: 16px;
+        padding-right: 48px;
+        background-color: var(--baseLight);
+        outline: none;
+        position: relative;
+
+        &::placeholder {
+            color: var(--baseDark);
+            opacity: 0.5;
+        }
+    }
+
+    button.submitWord {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background-color: #fff;
+        border: none;
+        display: block;
+        background-color: #00000000;
+        padding: 7px;
+        border-radius: 9px;
+        cursor: pointer;
+        transition: .2s;
+
+        svg {
+            transform: translateY(2px);
+        }
+        
+        &:hover {
+            background-color: #00000022;
+        }
+
+        &:focus {
+            background-color: #00000022;
+            outline: none;
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    form {
+        margin-top: 60px;
+
+        input.inputWord {
+            width: 440px;
+            height: 48px;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    form {
+        margin-top: 46px;
+
+        input.inputWord {
+            width: 440px;
+            height: 45px;
+            font-size: 14px;
+            border-radius: 12px;
+            padding-left: 15px;
+            padding-right: 46px;
+        }
+
+        button.submitWord {
+            padding: 6px;
+
+            svg {
+                transform: scale(0.9) translateY(2px);
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    form {
+        margin-top: 36px;
+        width: 83vw;
+        max-width: 400px;
+
+        input.inputWord {
+            height: 44px;
+            font-size: 13px;
+            width: 100%;
+        }
+
+        button.submitWord {
+            padding: 6px;
+            right: 8px;
+
+            svg {
+                transform: scale(0.87) translateY(2px);
+            }
+        }
+    }
+}

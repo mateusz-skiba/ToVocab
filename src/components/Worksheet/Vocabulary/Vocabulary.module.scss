@@ -1,0 +1,72 @@
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--baseDark);
+    text-align: left;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 121%;
+    opacity: 0.95;
+  }
+
+  .vocabContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 5px;
+
+    .word {
+      font-family: 'Montserrat', sans-serif;
+      margin: 10px 10px 0px 0px;
+      display: block;
+      background-color: var(--baseLight);
+      color: var(--baseDark);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 9px 13px;
+      border-radius: 15px;
+      position: relative;
+    }
+  }
+
+@media (max-width: 1600px) {
+    h2 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 1400px) {
+    h2 {
+        font-size: 30px;
+      }
+
+      .vocabContent {
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        .word {
+          margin: 8px 8px 0px 0px;
+          font-size: 13.5px;
+          padding: 7px 11px;
+          border-radius: 12px;
+        }
+      }
+}
+
+@media (max-width: 650px) {
+    h2 {
+        font-size: 26px;
+      }
+
+      .vocabContent {
+        padding-top: 3px;
+        padding-bottom: 3px;
+
+        .word {
+          margin: 6px 6px 0px 0px;
+          font-size: 12px;
+          padding: 7px 11px;
+          border-radius: 9px;
+        }
+      }
+}

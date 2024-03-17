@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 
-import Header from './components/Header/Header.jsx';
-import Hero from './components/Hero/Hero.jsx';
-import Worksheet from './components/Worksheet/Worksheet.jsx';
-import Footer from './components/Footer/Footer.jsx';
+import Header from './components/Header/Header.tsx';
+import Main from './components/Main/Main.tsx';
+import Footer from './components/Footer/Footer.tsx';
 
-import { WordsContext, ExercisesContext, StyleExercises } from './AppContext.js';
+import { WordsContext, ExercisesContext, StyleExercises } from './AppContext.tsx';
 
 function App() {
   const [words, setWords] = useState([]);
@@ -18,10 +17,7 @@ function App() {
         <StyleExercises.Provider value={{ styleExercises, setStyleExercises }}>
           <div id="app">
             <Header />
-            <main>
-              <Hero />
-              <Worksheet />
-            </main>
+            <Main />
             <Footer />
           </div>
         </StyleExercises.Provider>

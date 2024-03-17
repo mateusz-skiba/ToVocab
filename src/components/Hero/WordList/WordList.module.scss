@@ -1,0 +1,108 @@
+.vocabContent {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 5px;
+
+    .word {
+        font-family: 'Montserrat', sans-serif;
+        margin: 10px 4.5px 0px;
+        box-shadow: 1px 1px 6px rgba(0,0,0, 0.4);
+        display: block;
+        background-color: var(--baseLight);
+        color: var(--baseDark);
+        font-weight: 500;
+        font-size: 15px;
+        padding: 8px 33px 8px 15px;
+        border-radius: 11px;
+        position: relative;
+
+        button.remove {
+            appearance: none;
+            border: none;
+            box-shadow: none;
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            top: 50%;
+            right: 7px;
+            transform: translateY(-50%);
+            font-weight: 300;
+            font-size: 15px;
+            text-align: center;
+            line-height: 0px;
+            border-radius: 6px;
+            background-color: #00000000;
+            width: 19px;
+            height: 19px;
+            cursor: pointer;
+            transition: .2s;
+            padding-bottom: 1px;
+            outline: none;
+
+            &:hover {
+                background-color: #00000022;
+            }
+
+            &:focus {
+                background-color: #00000022;
+            }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .vocabContent {
+        width: 560px;
+        padding-top: 4px;
+    
+        .word {
+        margin: 9px 4px 0px;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .vocabContent {
+        width: 520px;
+        padding-top: 4px;
+    
+        .word {
+          margin: 9px 4px 0px;
+          font-size: 14px;
+          padding: 7px 31px 7px 14px;
+          border-radius: 11px;
+    
+          button.remove {
+            right: 6px;
+            border-radius: 5px;
+            width: 17px;
+            height: 17px;
+          }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .vocabContent {
+    width: 98%;
+    padding-top: 3px;
+
+    .word {
+      font-size: 13px;
+      margin: 8px 3px 0px;
+      border-radius: 10px;
+      padding: 6px 27px 6.5px 12px;
+
+      button.remove {
+        right: 6px;
+        border-radius: 5px;
+        width: 17px;
+        height: 17px;
+        right: 4px;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--baseLightText);
+    text-align: center;
+    font-weight: bold;
+    font-size: 58px;
+    line-height: 121%;
+
+    span.highlight {
+        color: var(--baseDark);
+        z-index: 0;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: 104%;
+            height: 100%;
+            background-color: var(--baseLightText);
+            display: block;
+            position: absolute;
+            top: 6%;
+            left: -2%;
+            z-index: -1;
+            transform: rotate(-1.5deg);
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    h1 {
+        font-size: 51px;
+    }
+}
+
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 46px;
+    }
+}
+
+@media (max-width: 650px) {
+    h1 {
+        font-size: 31px;
+        line-height: 125%;
+
+        span.small {
+            font-size: 28px;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 29px;
+  
+        span.small {
+            font-size: 28px;
+        }
+    }
+}
+  
+@media (max-width: 365px) {
+    h1 {
+        font-size: 27px;
+  
+        span.small {
+            font-size: 26px;
+        }
+    }
+}
+  
+@media (max-width: 335px) {
+    h1 {
+        font-size: 25px;
+  
+        span.small {
+            font-size: 24px;
+        }
+    }
+}
+  
+@media (max-width: 318px) {
+    h1 {
+        font-size: 22px;
+  
+        span.small {
+            font-size: 21px;
+        }
+    }
+}

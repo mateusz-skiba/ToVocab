@@ -1,0 +1,59 @@
+.generate {
+    margin-top: 42px;
+    height: 50px;
+    width: 238px;
+    border-radius: 13px;
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--baseLight);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0);
+    background: -webkit-linear-gradient(45deg, #680aca, #ff897e);
+    background: linear-gradient(60deg,#f79533,#f37055,#ef4e7b,#a166ab,#5073b8,#1098ad,#07b39b,#6fba82);
+    animation: animatedgradient 5s ease infinite alternate;
+    background-size: 300% 300%;
+    box-shadow: 1px 1px 6px rgba(0,0,0, 0.4);
+    pointer-events: none;
+}
+
+.active {
+    pointer-events: all;
+
+    &:hover {
+        box-shadow: 1px 1px 19px rgba(0,0,0, 0.7);
+    }
+
+    &:focus {
+        box-shadow: 1px 1px 19px rgba(0,0,0, 0.7);
+    }
+}
+
+@media (max-width: 1600px) {
+    .generate {
+        height: 48px;
+        width: 230px;
+        margin-top: 36px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .generate {
+        height: 45px;
+        width: 220px;
+        margin-top: 34px;
+        border-radius: 12px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 100px) {
+    .generate {
+        height: 44px;
+        font-size: 14px;
+        width: 208px;
+        margin-top: 27px;
+    }
+}

@@ -1,0 +1,96 @@
+button.checkAll {
+    margin-top: 80px;
+    height: 50px;
+    width: 238px;
+    border-radius: 13px;
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--baseLight);
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #2B3440;
+    border: 2px solid #2B3440;
+    animation: animatedgradient 5s ease infinite alternate;
+    background-size: 300% 300%;
+    transition: .12s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffffff00;
+      color: #2B3440;
+    }
+
+    &:focus-visible {
+      background-color: #ffffff00;
+      color: #2B3440;
+      outline: auto;
+    }
+}
+
+button.done {
+    background-color: #ffffff00;
+    color: #2B3440;
+}
+
+@media (max-width: 1600px) {
+    button#checkAll {
+        height: 48px;
+        width: 230px;
+    }
+}
+
+@media (max-width: 1400px) {
+    button#checkAll {
+        height: 45px;
+        width: 220px;
+        border-radius: 12px;
+        font-size: 15px;
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 650px) {
+    button#checkAll {
+        height: 44px;
+        font-size: 14px;
+        width: 190px;
+        margin-top: 43px;
+    }
+}
+
+.correct {
+    p {
+      input, select {
+        background-color: #81C784;
+        pointer-events: none;
+      }
+    }
+
+    button {
+      pointer-events: none;
+      visibility: hidden;
+    }
+  }
+
+  .wrong {
+    p {
+      input, select {
+        background-color: #E57373!important;
+        pointer-events: none;
+
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+
+      span {
+        display: inline!important;
+      }
+    }
+
+    button {
+      pointer-events: none;
+      visibility: hidden;
+    }
+  }
