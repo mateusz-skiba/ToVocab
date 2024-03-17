@@ -4,7 +4,7 @@
 Link: http://tovocab.com/
 
 ## Technologies
-* React.js
+* React.js with TypeScript
 * Node.js (The backend repository is kept private)
 * SCSS
 
